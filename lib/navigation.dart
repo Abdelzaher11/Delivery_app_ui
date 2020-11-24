@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:training_project_delivery/main.dart';
+import 'package:training_project_delivery/homePage.dart';
 import 'package:training_project_delivery/profile.dart';
 
 class Navigations extends StatefulWidget {

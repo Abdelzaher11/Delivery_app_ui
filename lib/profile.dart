@@ -11,6 +11,7 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       body: Column(
         children: <Widget>[
+          //profile info
           Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -54,39 +55,42 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
               )),
+          //fields
           Expanded(
               child: Row(
             children: <Widget>[
               Expanded(
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(height: 20,),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          hintText: 'E-mail',
-                          icon: Icon(
-                            Icons.email,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 20,),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            hintText: 'E-mail',
+                            icon: Icon(
+                              Icons.email,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 15,),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        keyboardType:TextInputType.number ,
-                        decoration: InputDecoration(
-                          hintText: 'Mobile Number',
-                          icon: Icon(
-                            Icons.phone,
+                      SizedBox(height: 15,),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          keyboardType:TextInputType.number ,
+                          decoration: InputDecoration(
+                            hintText: 'Mobile Number',
+                            icon: Icon(
+                              Icons.phone,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

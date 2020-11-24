@@ -1,9 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:training_project_delivery/main.dart';
+import 'package:training_project_delivery/listClass.dart';
 import 'package:training_project_delivery/navigation.dart';
 
 class Details extends StatefulWidget {
+  Details(this.name, this.image, this.price, this.size, this.time);
+
+  var name;
+  var image;
+  var price;
+  var size;
+  var time;
+
   @override
   _DetailsState createState() => _DetailsState();
 }
@@ -49,9 +56,9 @@ class _DetailsState extends State<Details> {
                 width: 10.0,
               ),
               Text(
-                'Name',
+                widget.name,
                 style: TextStyle(
-                  fontSize: 25.0,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -67,9 +74,9 @@ class _DetailsState extends State<Details> {
                 width: 10.0,
               ),
               Text(
-                'Price',
+                widget.price,
                 style: TextStyle(
-                  fontSize: 19.0,
+                  fontSize: 16.0,
                   color: Colors.red[400],
                   fontWeight: FontWeight.w400,
                   fontStyle: FontStyle.italic,
@@ -97,6 +104,7 @@ class _DetailsState extends State<Details> {
                       SizedBox(
                         height: 50.0,
                       ),
+                      //size title
                       Row(
                         children: <Widget>[
                           SizedBox(
@@ -105,7 +113,7 @@ class _DetailsState extends State<Details> {
                           Text(
                             'Size',
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 16.0,
                               color: Colors.grey,
                               fontWeight: FontWeight.w400,
                             ),
@@ -115,16 +123,17 @@ class _DetailsState extends State<Details> {
                       SizedBox(
                         height: 10,
                       ),
+                      // size
                       Row(
                         children: <Widget>[
                           SizedBox(
                             width: 10.0,
                           ),
                           Text(
-                            'Size',
+                            widget.size,
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 22.0,
+                              fontSize: 18.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -133,6 +142,7 @@ class _DetailsState extends State<Details> {
                       SizedBox(
                         height: 40,
                       ),
+                      //time title
                       Row(
                         children: <Widget>[
                           SizedBox(
@@ -141,7 +151,7 @@ class _DetailsState extends State<Details> {
                           Text(
                             'Delivery',
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 16.0,
                               color: Colors.grey,
                               fontWeight: FontWeight.w400,
                             ),
@@ -151,16 +161,17 @@ class _DetailsState extends State<Details> {
                       SizedBox(
                         height: 10,
                       ),
+                      //time
                       Row(
                         children: <Widget>[
                           SizedBox(
                             width: 10.0,
                           ),
                           Text(
-                            'Delivery Time',
+                            '${widget.time} Minutes',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 22.0,
+                              fontSize: 18.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -170,145 +181,68 @@ class _DetailsState extends State<Details> {
                   )),
                   //image
                   Expanded(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: Icon(
-                          Icons.local_dining,
-                          size: 100.0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(widget.image),
+                          fit: BoxFit.cover,
                         ),
                       ),
-                    ],
-                  )),
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ),
-          // components
-          Row(
-            children: <Widget>[
-              SizedBox(
-                width: 10,
-              ),
-              Text('Components'),
-            ],
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Container(
-            height: 50.0,
-            child: Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                    child: Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.grey[300],
-                          ),
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: Center(child: Text('1st')),
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
-                Expanded(
-                    child: Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.grey[300],
-                          ),
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: Center(child: Text('1st')),
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
-                Expanded(
-                    child: Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.grey[300],
-                          ),
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: Center(child: Text('1st')),
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
-              ],
             ),
           ),
           // order button
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10, right: 10, left: 10),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                      child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context)=>Done(),
-                      ));
-                    },
-                    child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(30.0),
-                              topLeft: Radius.circular(30.0)),
-                          color: Colors.yellow[600],
-                        ),
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Center(
-                            child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Place an Order',
-                              style: TextStyle(
-                                fontSize: 17.0,
-                                fontWeight: FontWeight.bold,
-                              ),
+          Spacer(
+            flex: 1,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10, right: 5, left: 5),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                    child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Done(),
+                        ));
+                  },
+                  child: Container(
+                      height: MediaQuery.of(context).size.width * 0.15,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(30.0),
+                            topLeft: Radius.circular(30.0)),
+                        color: Colors.yellow[600],
+                      ),
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      child: Center(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Place an Order',
+                            style: TextStyle(
+                              fontSize: 17.0,
+                              fontWeight: FontWeight.bold,
                             ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.black,
-                              size: 13.0,
-                            ),
-                          ],
-                        ))),
-                  )),
-                ],
-              ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.black,
+                            size: 13.0,
+                          ),
+                        ],
+                      ))),
+                )),
+              ],
             ),
           ),
         ],
@@ -340,12 +274,14 @@ class _DoneState extends State<Done> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: 45.0,),
+                SizedBox(
+                  height: 45.0,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                        'Thanks',
+                      'Thanks',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
@@ -356,31 +292,41 @@ class _DoneState extends State<Done> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Text(
-                    'your order is done',
+                  'your order is done',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 16.0,
                   ),
-
                 ),
-                Spacer(flex: 1,),
+                Spacer(
+                  flex: 1,
+                ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context)=> Navigations(),
-                    ));
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Navigations(),
+                        ));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text('Back to Home'),
-                      Icon(Icons.home,color: Colors.black,)
+                      Icon(
+                        Icons.home,
+                        color: Colors.black,
+                      )
                     ],
                   ),
                 ),
-                SizedBox(height: 5.0,),
+                SizedBox(
+                  height: 5.0,
+                ),
               ],
             ),
           ),
@@ -389,4 +335,3 @@ class _DoneState extends State<Done> {
     );
   }
 }
-
